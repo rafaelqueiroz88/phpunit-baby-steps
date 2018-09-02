@@ -30,10 +30,21 @@ class TestaMaiorEMenor extends PHPUnit
         $maiorMenor = new MaiorEMenor();
         $maiorMenor->encontra($carrinho);
 
+        /**
+         * Verifica se o resultado é igual ao esperado
+         */
         $this->assertEquals("Jogo de Pratos", $maiorMenor->getMenor()->getNome());
         $this->assertEquals("Geladeira", $maiorMenor->getMaior()->getNome());
+
+        /**
+         * Verifica se é um objeto da instancia esperada
+         */
         $this->assertInstanceOf("CDC\Loja\Produto\Produto", $maiorMenor->getMenor());
 
+        /**
+         * Verifica se é de fato um objeto ou um resultado do parametro a ser testado
+         */
+        $this->assertInternalType("object", $maiorMenor->getMenor());
     }
 
     public function testApenasUmProduto()
